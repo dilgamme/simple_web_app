@@ -1,10 +1,18 @@
 <!doctype html>
 <html>
 <head>
-    <title>eLearning App</title>
+    <title>Home</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Welcome to eLearning App!</h1>
+    <h1>Welcome to Our eLearning Platform</h1>
+    <div class="content">
+        <div class="photo">
+            <img src="{{ url_for('static', filename='home-photo.jpg') }}" alt="Home Photo">
+        </div>
+        <div class="text">
+            <p>Learn and Grow with Us! Explore our wide range of courses and enhance your skills.</p>
+        </div>
+    </div>
 </body>
 </html>
