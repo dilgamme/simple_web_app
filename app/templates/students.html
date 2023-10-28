@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+    <title>Students</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Our Students</h1>
+    <div class="student">
+        <div class="photo">
+            <img src="{{ url_for('static', filename='student1.jpg') }}" alt="Student 1 Photo">
+        </div>
+        <div class="details">
+            <p>John Doe</p>
+            <p>Computer Science Major</p>
+        </div>
+    </div>
+    <!-- Repeat the above student block for Student 2 and Student 3 -->
+</body>
+</html>

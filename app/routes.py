@@ -2,13 +2,21 @@ from app import app
 from flask import render_template
 
 @app.route('/')
-@app.route('/index')
 def index():
     return render_template('index.html')
 
-@app.route('/course/<course_id>')
-def course(course_id):
-    # Logic to retrieve course details from the database
-    # You can use a database like SQLite or SQLAlchemy ORM
-    # Return course details to the course template
-    return render_template('course.html', course_id=course_id)
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/courses')
+def courses():
+    return render_template('courses.html')
+
+@app.route('/students')
+def students():
+    return render_template('students.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
