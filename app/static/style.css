@@ -42,3 +42,37 @@ h1 {
 .btn:hover {
     background-color: #0056b3;
 }
+
+
+/* Global styles that apply to all pages */
+
+/* Styles specific to the contact page */
+.contact-page {
+    /* CSS styles specific to the contact page */
+    .left-section,
+.right-section {
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.left-section {
+    float: left;
+}
+
+.right-section {
+    float: right;
+}
+
+/* Add media query for responsiveness */
+@media (max-width: 768px) {
+    .left-section,
+    .right-section {
+        width: 100%;
+        float: none;
+    }
+}
+}
+
+
+/* Add more classes and styles for other pages as needed */
