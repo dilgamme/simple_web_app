@@ -28,7 +28,7 @@ jobs:
           source venv/bin/activate
 
       - name: Install dependencies
-        run: pip install --upgrade --no-binary hdbscan hdbscan  #-r requirements.txt
+        run: pip install -r requirements.txt
 
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       - name: Zip artifact for deployment
@@ -64,4 +64,4 @@ jobs:
         with:
           app-name: 'dlgm-webapp'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FEE94EBE34EA41CDA7913DED6A8B99AE }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4D866D3EDD864FCF8B5849600984F665 }}
