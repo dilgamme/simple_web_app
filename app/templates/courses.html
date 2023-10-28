@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+    <title>Courses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Our Courses</h1>
+    <div class="course">
+        <div class="photo">
+            <img src="{{ url_for('static', filename='course1.jpg') }}" alt="Course 1 Photo">
+        </div>
+        <div class="details">
+            <h2>Course 1: Introduction to Python</h2>
+            <p>An introductory course to learn Python programming language.</p>
+        </div>
+    </div>
+    <!-- Repeat the above course block for Course 2 and Course 3 -->
+</body>
+</html>
