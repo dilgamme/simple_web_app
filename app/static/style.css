@@ -1,0 +1,28 @@
+body.home-page {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Set the body height to full viewport height */
+    background: url('home-photo.jpg') no-repeat center center/cover; /* Set the background image and cover the entire body */
+    color: white; /* Set text color to white for better visibility on the photo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent black background to improve text readability */
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.text p {
+    font-size: 1.2em;
+    line-height: 1.5;
+}
