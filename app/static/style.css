@@ -83,5 +83,24 @@ h1 {
 
 }
 
+/* Add this CSS to style the contact page */
+.map-section {
+    display: flex;
+    flex-direction: row;
+}
 
-/* Add more classes and styles for other pages as needed */
+.map {
+    flex: 1;
+}
+
+.text-section {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Additional styles for address and contact information */
+.address,
+.contact-info {
+    margin-bottom: 20px;
+}
