@@ -10,19 +10,82 @@ az account set --subscription "82a2f20a-df87-401a-bf13-3b2feebf35c7"
 
 Create a Resource Group:
 
-az group create --name YourResourceGroupName --location eastus
+az group create --name rg-linux-vms-for-apps --location eastus
 Create a Linux VM:
 
 
 Copy code
-az vm create --resource-group YourResourceGroupName --name YourVMName --image UbuntuLTS --admin-username YourUsername --generate-ssh-keys --size Standard_B1s
+az vm create --resource-group rg-linux-vms-for-apps --name YourVMName --image Ubuntu2204 --admin-username adminuser --generate-ssh-keys --size Standard_B1s
 Step 2: Connect to Your Linux VM
 SSH into Your VM:
 
 Copy code
-ssh YourUsername@YourVMIPAddress
+ssh adminuser@20.124.193.206
 Step 3: Install Required Software on VM
 Update Package Lists:
+
+
+
+# Flask-App-Hosted-On-VPS
+Files needed to host a flask application on a linux VPS.
+
+## Commands
+
+Run the following commands on the VPS.
+
+### Install Python and Pip
+
+```bash
+sudo apt-get install python3
+sudo apt-get install python3-pip
+pip3 install flask
+```
+
+### Install and Configure NGINX
+
+Install nginx and create a new configuration file.
+```bash
+sudo apt install nginx 
+sudo nano /etc/nginx/sites-enabled/<directory-name-of-flask-app>
+```
+
+The contents of the confiugration file should be as follows:
+```bash
+server {
+    listen 80;
+    server_name <public-server-ip>;
+
+    location / {
+        proxy_pass http://127.0.0.1:8000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+```
+
+Unlink the default config file and reload nginx to use the newly created config file.
+```bash
+sudo unlink /etc/nginx/sites-enabled/default
+sudo nginx -s reload
+```
+
+### Installing and Using Gunicorn
+```bash
+sudo apt-get install gunicorn
+```
+
+Run the flask web app with gunicorn. The name of your flask instance must be ```app```.
+```bash
+gunicorn -w 3 flask_app:app
+```
+Now navigate to your servers public ip from a web browser! :)
+
+### Credits
+This information was summarized from [Linode's Guide](https://www.linode.com/docs/guides/flask-and-gunicorn-on-ubuntu/)
+
+
+
+
 
 
 Copy code
@@ -41,6 +104,9 @@ You can use scp to copy your Flask application files from your local machine to 
 
 Copy code
 scp -r /path/to/your/flask/app YourUsername@YourVMIPAddress:/path/to/destination/folder
+
+scp -r /path/to/your/flask/app azureuser@10.0.0.1:/home/azureuser/my_flask_app
+
 Step 5: Run Your Flask Application
 Navigate to Your App Directory:
 

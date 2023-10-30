@@ -1,7 +1,12 @@
-from flask import Flask
+from flask import Flask, jsonify
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = "secretkey123"
 
-from app import routes
+@app.route("/")  # this sets the route to this page
+def home():
+	return jsonify({'Message': "Testing"})
 
+if __name__ == "__main__":
+    app.run()
 
