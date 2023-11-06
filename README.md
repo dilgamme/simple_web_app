@@ -1,6 +1,8 @@
 Step 1: Create a Linux Virtual Machine in Azure
 Login to Azure:
 
+https://www.linode.com/docs/guides/flask-and-gunicorn-on-ubuntu/
+
 Copy code
 az login
 
@@ -15,16 +17,16 @@ Create a Linux VM:
 
 
 Copy code
-az vm create --resource-group rg-linux-vms-for-apps --name YourVMName --image Ubuntu2204 --admin-username adminuser --generate-ssh-keys --size Standard_B1s
+az vm create --resource-group rg-linux-vms-for-apps --name lin-webserver1 --image Ubuntu2204 --admin-username adminuser --generate-ssh-keys --size Standard_B1s
 Step 2: Connect to Your Linux VM
 SSH into Your VM:
 
 Copy code
-ssh adminuser@20.124.193.206
+ssh adminuser@13.92.44.211
 Step 3: Install Required Software on VM
 Update Package Lists:
 
-
+scp -r flask_app_project/ adminuser@13.92.44.211:/~
 
 # Flask-App-Hosted-On-VPS
 Files needed to host a flask application on a linux VPS.
@@ -53,7 +55,7 @@ The contents of the confiugration file should be as follows:
 ```bash
 server {
     listen 80;
-    server_name <public-server-ip>;
+    server_name 13.92.44.211;
 
     location / {
         proxy_pass http://127.0.0.1:8000;
@@ -62,6 +64,9 @@ server {
     }
 }
 ```
+
+export FLASK_APP=app/__init__.py
+export FLASK_ENV=development
 
 Unlink the default config file and reload nginx to use the newly created config file.
 ```bash
