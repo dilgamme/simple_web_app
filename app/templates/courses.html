@@ -1,45 +1,31 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <title>Courses</title>
-</head>
-<body>
-    <h2>Courses</h2>
-  
-    <div class="course">
-        <div class="photo">
-            <img src="{{ url_for('static', filename='az-900.jpg') }}" alt="AZ 900">
-        </div>
-        <h3>AZ-900 Azure Fundamentals</h3>
-        <p>
-            As a candidate for this exam, you’re a technology professional who wants to demonstrate foundational knowledge of cloud concepts in general and Microsoft Azure in particular. This exam is a common starting point in a journey towards a career in Azure.
-        </p>
-        <p>Price: 500 zloty</p>
-        <button>Buy</button>
-    </div>
-
-    <div class="course">
-        <div class="photo">
-            <img src="{{ url_for('static', filename='course1.jpg') }}" alt="Course 1 Photo">
-        </div>
-        <h3>AZ-104 Azure Administrator Associate</h3>
-        <p>
-            As a candidate for this exam, you’re a technology professional who wants to demonstrate foundational knowledge of cloud concepts in general and Microsoft Azure in particular. This exam is a common starting point in a journey towards a career in Azure.
-        </p>
-        <p>Price: 1500 zloty</p>
-        <button>Buy</button>
-    </div>
-
-</body>
-</html> -->
-
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Courses</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .course {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .course img {
+            width: 200px; /* Set the desired width for the images */
+            height: 150px; /* Set the desired height for the images */
+        }
+
+        #cart {
+            text-align: center;
+        }
+    </style>
     <script>
         function addToCart(courseTitle, coursePrice) {
             var cartItem = document.createElement("div");
@@ -80,3 +66,77 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Courses</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .course {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .course img {
+            width: 200px; /* Set the desired width for the images */
+            height: 150px; /* Set the desired height for the images */
+        }
+
+        #cart {
+            text-align: center;
+        }
+    </style>
+    <script>
+        // JavaScript functions remain unchanged
+    </script>
+</head>
+<body>
+    <h2>Courses</h2>
+
+    <div class="course">
+        <img src="path_to_az900_image.jpg" alt="AZ-900 Course">
+        <h3>AZ-900 Azure Fundamentals</h3>
+        <p>
+            As a candidate for this exam, you’re a technology professional who wants to demonstrate foundational knowledge of cloud concepts in general and Microsoft Azure in particular. This exam is a common starting point in a journey towards a career in Azure.
+        </p>
+        <p>Price: 500 zloty</p>
+        <button onclick="addToCart('AZ-900 Azure Fundamentals', '500 zloty')">Buy</button>
+    </div>
+
+    <div class="course">
+        <img src="path_to_az104_image.jpg" alt="AZ-104 Course">
+        <h3>AZ-104 Azure Administrator Associate</h3>
+        <p>
+            As a candidate for this exam, you’re a technology professional who wants to demonstrate foundational knowledge of cloud concepts in general and Microsoft Azure in particular. This exam is a common starting point in a journey towards a career in Azure.
+        </p>
+        <p>Price: 1500 zloty</p>
+        <button onclick="addToCart('AZ-104 Azure Administrator Associate', '1500 zloty')">Buy</button>
+    </div>
+
+    <h2>Shopping Cart</h2>
+    <div id="cart"></div>
+
+</body>
+</html> -->
