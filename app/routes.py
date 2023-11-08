@@ -16,6 +16,10 @@ def courses():
 @app.route('/students')
 def students():
     return render_template('students.html')
+    
+@app.route('/workshop')
+def workshop():
+    return render_template('workshop.html')
 
 @app.route('/contact')
 def contact():
