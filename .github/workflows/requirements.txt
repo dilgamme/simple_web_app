@@ -1,4 +1,0 @@
-flask-sqlalchemy
-sqlalchemy
-flask-security
-flask-wtf
