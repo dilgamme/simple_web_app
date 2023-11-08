@@ -4,6 +4,9 @@
 # Switch to adminuser
 sudo su adminuser
 
+# Go to home folder
+cd ..
+
 # Install necessary tools
 sudo apt-get update
 sudo apt-get install nano
