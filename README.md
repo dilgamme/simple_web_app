@@ -1,6 +1,3 @@
-## Setup Instructions
-
-```bash
 # Switch to adminuser
 sudo su adminuser
 
@@ -16,9 +13,9 @@ sudo apt-get install python3-pip
 sudo apt-get install gunicorn
 
 # Create a directory for repositories and clone Git repository
-mkdir repos
+sudo mkdir repos
 cd repos
-git clone https://github.com/dilgamme/simple_web_app.git
+sudo git clone https://github.com/dilgamme/simple_web_app.git
 
 # Configure NGINX for the Flask app
 sudo nano /etc/nginx/sites-enabled/flask_app
@@ -26,7 +23,7 @@ sudo nano /etc/nginx/sites-enabled/flask_app
 # Add the following configuration, then press Ctrl+X, Y to save changes
 server {
     listen 80;
-    server_name 172.201.45.91;
+    server_name 108.143.154.115;
 
     location / {
         proxy_pass http://127.0.0.1:8000;
@@ -43,5 +40,5 @@ sudo nginx -s reload
 
 # Install Flask and run the application using Gunicorn
 pip3 install flask
-cd /path/to/simple_web_app
+cd simple_web_app
 gunicorn -w 3 app:app
